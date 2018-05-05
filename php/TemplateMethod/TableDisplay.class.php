@@ -20,7 +20,7 @@ class TableDisplay extends AbstractDisplay
      */
     protected function displayBody()
     {
-        foreach ($this->getData() as $Key => $value){
+        foreach ($this->getData() as $Key => $value) {
             echo '<tr>';
             echo '<th>'.$key.'</th>';
             echo '<td>'.$value.'</td>';

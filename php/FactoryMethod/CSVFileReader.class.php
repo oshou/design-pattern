@@ -1,14 +1,11 @@
 <?php
-
-require_once 'Reader.class.php';
-
 /**
- * CSVファイルの読み込みを行うクラス
+ * 読み込み機能の実装
  */
 class CSVFileReader implements Reader
 {
     /**
-     * 内容を表示するファイル名
+     * 内容を表示
      *
      * @access private
      */
@@ -16,11 +13,8 @@ class CSVFileReader implements Reader
 
     /**
      * データを扱うハンドラ名
-     *
-     * @access private
      */
     private $handler;
-
 
     /**
      * コンストラクタ
@@ -31,13 +25,13 @@ class CSVFileReader implements Reader
     public function __construct($filename)
     {
         if (!is_readable($filename)) {
-            throw new Exception('file "'.$filename. '" is not readable!');
+            throw new Exception('file "'.$filename.'" is not readable!');
         }
         $this->filename = $filename;
     }
 
     /**
-     * 読み込み
+     * 読み込みを行う
      */
     public function read()
     {
@@ -45,7 +39,7 @@ class CSVFileReader implements Reader
     }
 
     /**
-     * 表示
+     * 表示を行う
      */
     public function display()
     {
