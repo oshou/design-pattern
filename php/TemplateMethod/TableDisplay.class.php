@@ -1,26 +1,27 @@
 <?php
 
-require_once 'AbstractDisplay.class.php';
+require_once('AbstractDisplay.class.php');
 
 /**
- * ConcreteClass
+ * Concreteクラス(具象クラス)
  */
 class TableDisplay extends AbstractDisplay
 {
     /**
-     * ヘッダを表示する
+     * ヘッダ表示用の具象メソッド
      */
     protected function displayHeader()
     {
         echo '<table border="1" cellpadding="2" cellspacing="2">';
     }
 
+
     /**
-     * ボディを表示する
+     * ボディ表示用の具象メソッド
      */
     protected function displayBody()
     {
-        foreach ($this->getData() as $Key => $value) {
+        foreach ($this->getData() as $key => $value) {
             echo '<tr>';
             echo '<th>'.$key.'</th>';
             echo '<td>'.$value.'</td>';
@@ -28,8 +29,9 @@ class TableDisplay extends AbstractDisplay
         }
     }
 
+
     /**
-     * フッタを表示する
+     * フッタ表示用の具象メソッド
      */
     protected function displayFooter()
     {

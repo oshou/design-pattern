@@ -10,6 +10,7 @@ $data = array('Design Pattern',
 
 $display1 = new ListDisplay($data);
 $display2 = new TableDisplay($data);
+
 $display1->display();
-echo '<hr/>';
+echo '<hr>';
 $display2->display();

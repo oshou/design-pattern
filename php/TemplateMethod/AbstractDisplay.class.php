@@ -1,7 +1,9 @@
 <?php
+
 /**
- * AbstractClass
+ * http://d.hatena.ne.jp/shimooka/20141212/1418363698
  */
+
 abstract class AbstractDisplay
 {
     /**
@@ -9,20 +11,31 @@ abstract class AbstractDisplay
      */
     private $data;
 
+
     /**
-     * constructor
+     * コンストラクタ
      * @param mixed 表示するデータ
      */
     public function __construct($data)
     {
-        if (!is_array($data)){
+        if (!is_array($data)) {
             $data = array($data);
         }
         $this->data = $data;
     }
 
+
     /**
-     * TemplateMethod
+     * データ取得
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+
+    /**
+     * Template Method
      */
     public function display()
     {
@@ -31,26 +44,27 @@ abstract class AbstractDisplay
         $this->displayFooter();
     }
 
-    /**
-     * データを取得する
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
 
     /**
-     * ヘッダを表示する
+     * ヘッダ表示用 抽象メソッド
+     *
+     * 実装はサブクラスで行う
      */
-    protected abstract function displayHeader();
+    abstract protected function displayHeader();
+
 
     /**
-     * ボディを表示する
+     * ボディ表示用 抽象メソッド
+     *
+     * 実装はサブクラスで行う
      */
-    protected abstract function displayBody();
+    abstract protected function displayBody();
+
 
     /**
-     * フッタを表示する
+     * フッタ表示用 抽象メソッド
+     *
+     * 実装はサブクラスで行う
      */
-    protected abstract function displayFooter();
+    abstract protected function displayFooter();
 }
