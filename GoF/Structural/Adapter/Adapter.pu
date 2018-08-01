@@ -1,0 +1,25 @@
+@startuml
+
+class Client
+
+interface Target {
+    {abstract} targetMethod1()
+    {abstract} targetMethod2()
+}
+
+class Adapter {
+    targetMethod1()
+    targetMethod2()
+}
+
+class Adaptee {
+    methodA()
+    methodB()
+    methodC()
+}
+
+Client -down-> Target : Uses >
+Target <|.right. Adapter : implements < 
+Adapter -right-|> Adaptee : extends >
+
+@enduml

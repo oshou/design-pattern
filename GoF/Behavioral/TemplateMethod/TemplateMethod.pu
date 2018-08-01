@@ -1,0 +1,18 @@
+@startuml
+
+abstract AbstractClass {
+    abstract method1()
+    abstract method2()
+    abstract method3()
+    abstract templateMethod()
+}
+
+class ConcreteClass {
+    method1()
+    method2()
+    method3()
+}
+
+ConcreteClass -up-|> AbstractClass
+
+@enduml
