@@ -73,7 +73,7 @@ class Window(ttk.Frame):
         self.sourceButton = TkUtil.Button(self, text="Source...",
                 underline=0, command=lambda *args:
                     self.choose_folder(SOURCE))
-        self.helpButton = TkUtil.Button(self, text="Help", underline=0,
+        self.helpButton = TkUtil.Button(self, text="HelpJs", underline=0,
                 command=self.help)
         self.targetLabel = ttk.Label(self, text="Target Folder:",
                 underline=-1 if TkUtil.mac() else 1)
@@ -159,7 +159,7 @@ class Window(ttk.Frame):
         paras = [
 """Reads all the images in the source directory and produces smoothly
 scaled copies in the target directory."""]
-        messagebox.showinfo("Help — {}".format(APPNAME),
+        messagebox.showinfo("HelpJs — {}".format(APPNAME),
                 "\n\n".join([para.replace("\n", " ") for para in paras]),
                 parent=self)
 
