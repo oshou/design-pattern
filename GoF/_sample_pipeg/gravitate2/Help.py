@@ -39,7 +39,7 @@ class Window(tk.Toplevel):
     def __init__(self, master):
         super().__init__(master)
         self.withdraw()
-        self.title("Help \u2014 {}".format(APPNAME))
+        self.title("HelpJs \u2014 {}".format(APPNAME))
         self.create_ui()
         self.reposition()
         self.resizable(False, False)

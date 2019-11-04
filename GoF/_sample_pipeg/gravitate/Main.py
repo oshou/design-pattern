@@ -20,7 +20,7 @@ if __name__ == "__main__": # For stand-alone testing with parallel TkUtil
         "..")))
 import About
 import Board
-import Help
+import HelpJs
 import Preferences
 import TkUtil
 from Globals import *
@@ -149,7 +149,7 @@ class Window(ttk.Frame):
 
     def help(self, event=None):
         if self.helpDialog is None:
-            self.helpDialog = Help.Window(self)
+            self.helpDialog = HelpJs.Window(self)
         else:
             self.helpDialog.deiconify()
 
