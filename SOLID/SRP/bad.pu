@@ -1,0 +1,10 @@
+@startuml
+class Employee {
+  +name: string
+  +department: string
+  +calculatePay()
+  +reportHours()
+  +save()
+  -getRegularHours()
+}
+@enduml

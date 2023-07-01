@@ -1,0 +1,35 @@
+@startuml
+class EmployeeData {
+  +name: string
+  +department: string
+}
+
+class EmployeeRepository {
+  +save()
+}
+
+class PayCalculator {
+  +calculatePay()
+  -getRegularHours()
+}
+
+class HourReporter {
+  +reportHours()
+  -getRegularHours()
+}
+
+class Engineer {}
+
+class HRDept{}
+
+class FinanceDept{}
+
+Engineer ---> EmployeeRepository
+HRDept ---> HourReporter
+FinanceDept ---> PayCalculator
+
+EmployeeRepository --> EmployeeData
+HourReporter --> EmployeeData
+PayCalculator --> EmployeeData
+
+@enduml
