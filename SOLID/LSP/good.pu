@@ -1,0 +1,24 @@
+@startuml
+
+interface Shape {
+  getArea(): number
+}
+
+class Rectangle {
+  -width
+  -height
+  +setWidth()
+  +setHeight()
+  +getArea()
+}
+
+class Square {
+  -length
+  +setLength()
+  +getArea()
+}
+
+Shape <--- Square
+Shape <--- Rectangle
+
+@enduml
