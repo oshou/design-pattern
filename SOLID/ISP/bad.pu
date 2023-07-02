@@ -1,0 +1,29 @@
+@startuml
+interface IVehicle {
+  +name: string
+  +color: string
+  +start()
+  +stop()
+  +fly()
+}
+
+class Airplane {
+  +name: string
+  +color: string
+  +start()
+  +stop()
+  +fly()
+}
+
+class Car {
+  +name: string
+  +color: string
+  +start()
+  +stop()
+  +fly()
+}
+
+IVehicle <--- Car
+IVehicle <--- Airplane
+
+@enduml
