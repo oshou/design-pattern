@@ -1,0 +1,23 @@
+@startuml
+
+class UserController {
+  +userService: UserService
+  +create(user: User): User
+  +findByID(id: string): User
+}
+
+class UserService {
+  +userRepository: UserRepository
+  +create(user: User): User
+  +findByID(id: string): User
+}
+
+class UserRepository {
+  +create(user: User): User
+  +findByID(id: string): User
+}
+
+UserController ---> UserService
+UserService ---> UserRepository
+
+@enduml

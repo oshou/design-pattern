@@ -1,0 +1,35 @@
+@startuml
+
+class UserController {
+  +userService: IUserService
+  +create(user:User): User
+  +findById(id: string): User
+}
+
+interface IUserService {
+  +create(user:User): User
+  +findById(id: string): User
+}
+
+class UserService {
+  +userRepository: IUserRepository
+  +create(user:User): User
+  +findById(id: string): User
+}
+
+interface IUserRepository {
+  +create(user:User): User
+  +findById(id: string): User
+}
+
+class UserRepository {
+  +create(user:User): User
+  +findById(id: string): User
+}
+
+UserController ---> IUserService
+IUserService <--- UserService
+UserService ---> IUserRepository
+IUserRepository <--- UserRepository
+
+@enduml
