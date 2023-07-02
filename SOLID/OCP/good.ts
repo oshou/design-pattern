@@ -1,48 +1,50 @@
-class EmployeeData {
-  public name: string
-  public department: string
+interface IEmployee {
+  name: string
+  getBonus(base: number): number
+}
 
-  constructor(name: string, department: string) {
-    this.name = name
-    this.department = department
+class JuniorEmployee implements IEmployee {
+  constructor(public name: string) {}
+
+  getBonus(base: number): number {
+    return Math.floor(base * 1.1)
   }
 }
 
-class PayCalculator {
-  calculatePay(employeeData: EmployeeData): void {
-    this.getRegularHours()
-    console.log(`${employeeData.name}の給与を計算しました`)
-  }
+class MiddleEmployee implements IEmployee {
+  constructor(public name: string) {}
 
-  private getRegularHours(): void {
-    console.log('給与計算用の労働時間計算ロジック')
+  getBonus(base: number): number {
+    return Math.floor(base * 1.2)
   }
 }
 
-class HourReporter {
-  reportHours(employeeData: EmployeeData): void {
-    this.getRegularHours()
-    console.log(`${employeeData.name}の労働時間を計算しました`)
-  }
-  private getRegularHours(): void {
-    console.log('労働時間レポート用の労働時間計算ロジック')
+class SeniorEmployee implements IEmployee {
+  constructor(public name: string) {}
+
+  getBonus(base: number): number {
+    return Math.floor(base * 1.3)
   }
 }
 
-class EmployeeRepository {
-  save(): void {}
+class ExpertEmployee implements IEmployee {
+  constructor(public name: string) {}
+
+  getBonus(base: number): number {
+    return Math.floor(base * 1.5)
+  }
 }
 
 function run() {
-  const employeeData = new EmployeeData('鈴木', '開発')
-  const payCalculator = new PayCalculator()
-  const hourReporter = new HourReporter()
+  const emp1 = new JuniorEmployee('Yamada')
+  const emp2 = new MiddleEmployee('Suzuki')
+  const emp3 = new SeniorEmployee('Tanaka')
+  const emp4 = new ExpertEmployee('Koyama')
 
-  console.log('経理部門')
-  payCalculator.calculatePay(employeeData)
-
-  console.log('人事部門')
-  hourReporter.reportHours(employeeData)
+  console.log(`emp1: ${emp1.getBonus(100)}`)
+  console.log(`emp2: ${emp2.getBonus(100)}`)
+  console.log(`emp3: ${emp3.getBonus(100)}`)
+  console.log(`emp4: ${emp4.getBonus(100)}`)
 }
 
 run()

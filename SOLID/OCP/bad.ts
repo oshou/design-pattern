@@ -1,46 +1,37 @@
-class Employee {
-  public name: string
-  public department: string
+export class Employee {
+  constructor(public name: string, public grade: 'junior' | 'middle' | 'senior' | 'expert') {}
+}
 
-  constructor(name: string, department: string) {
-    this.name = name
-    this.department = department
-  }
+export class BonusCalculator {
+  constructor(public base: number) {}
 
-  // 経理部門がアクター
-  calculatePay() {
-    this.getRegularHours()
-    console.log(`${this.name}の給与を計算しました`)
-  }
-
-  // 人事部門がアクター
-  reportHours() {
-    this.getRegularHours()
-    console.log(`${this.name}の労働時間をレポートしました`)
-  }
-
-  // データベース管理者がアクター
-  save() {
-    console.log(`${this.name}を保存しました`)
-  }
-
-  private getRegularHours() {
-    // 仕様変更前
-    // console.log(`人事・経理部門の共通ロジック`)
-
-    // 仕様変更後
-    console.log(`経理部門依頼で仕様変更済`)
+  getBonus(employee: Employee): number {
+    switch (employee.grade) {
+      case 'junior':
+        return Math.floor(this.base * 1.1)
+      case 'middle':
+        return Math.floor(this.base * 1.2)
+      case 'senior':
+        return Math.floor(this.base * 1.3)
+      case 'expert':
+        return Math.floor(this.base * 1.5)
+      default:
+        return Math.floor(this.base * 1.0)
+    }
   }
 }
 
 function run() {
-  const emp = new Employee('山田', '開発')
+  const emp1 = new Employee('Yamada', 'junior')
+  const emp2 = new Employee('Suzuki', 'middle')
+  const emp3 = new Employee('Tanaka', 'senior')
+  const emp4 = new Employee('Koyama', 'expert')
 
-  console.log('経理部門')
-  emp.calculatePay()
-
-  console.log('人事部門')
-  emp.reportHours()
+  const bonusCalculator = new BonusCalculator(100)
+  console.log(`emp1: ${bonusCalculator.getBonus(emp1)}`)
+  console.log(`emp2: ${bonusCalculator.getBonus(emp2)}`)
+  console.log(`emp3: ${bonusCalculator.getBonus(emp3)}`)
+  console.log(`emp4: ${bonusCalculator.getBonus(emp4)}`)
 }
 
 run()

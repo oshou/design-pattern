@@ -1,35 +1,27 @@
 @startuml
-class EmployeeData {
+
+class IEmployee {
   +name: string
-  +department: string
+  +getBonus(base:number)
 }
 
-class EmployeeRepository {
-  +save()
+class JuniorEmployee {
+  +name:string
+  +getBonus(base:number)
 }
 
-class PayCalculator {
-  +calculatePay()
-  -getRegularHours()
+class MiddleEmployee {
+  +name:string
+  +getBonus(base:number)
 }
 
-class HourReporter {
-  +reportHours()
-  -getRegularHours()
+class SeniorEmployee {
+  +name:string
+  +getBonus(base:number)
 }
 
-class Engineer {}
-
-class HRDept{}
-
-class FinanceDept{}
-
-Engineer ---> EmployeeRepository
-HRDept ---> HourReporter
-FinanceDept ---> PayCalculator
-
-EmployeeRepository --> EmployeeData
-HourReporter --> EmployeeData
-PayCalculator --> EmployeeData
+JuniorEmployee ---> IEmployee
+MiddleEmployee ---> IEmployee
+SeniorEmployee ---> IEmployee
 
 @enduml

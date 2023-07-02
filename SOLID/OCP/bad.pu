@@ -1,10 +1,15 @@
 @startuml
+
+class BonusCalculator {
+  +base: number
+  +getBonus(employee: Employee)
+}
+
 class Employee {
   +name: string
-  +department: string
-  +calculatePay()
-  +reportHours()
-  +save()
-  -getRegularHours()
+  +grade: "junior"|"middle"|"senior"
 }
+
+BonusCalculator ---> Employee
+
 @enduml
