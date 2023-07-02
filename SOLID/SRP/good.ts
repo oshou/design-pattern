@@ -1,4 +1,4 @@
-class EmployeeData {
+export class Employee {
   public name: string
   public department: string
 
@@ -8,10 +8,10 @@ class EmployeeData {
   }
 }
 
-class PayCalculator {
-  calculatePay(employeeData: EmployeeData): void {
+export class PayCalculator {
+  calculatePay(employee: Employee): void {
     this.getRegularHours()
-    console.log(`${employeeData.name}の給与を計算しました`)
+    console.log(`${employee.name}の給与を計算しました`)
   }
 
   private getRegularHours(): void {
@@ -19,22 +19,22 @@ class PayCalculator {
   }
 }
 
-class HourReporter {
-  reportHours(employeeData: EmployeeData): void {
+export class HourReporter {
+  reportHours(employee: Employee): void {
     this.getRegularHours()
-    console.log(`${employeeData.name}の労働時間を計算しました`)
+    console.log(`${employee.name}の労働時間を計算しました`)
   }
   private getRegularHours(): void {
     console.log('労働時間レポート用の労働時間計算ロジック')
   }
 }
 
-class EmployeeRepository {
+export class EmployeeRepository {
   save(): void {}
 }
 
 function run() {
-  const employeeData = new EmployeeData('鈴木', '開発')
+  const employeeData = new Employee('鈴木', '開発')
   const payCalculator = new PayCalculator()
   const hourReporter = new HourReporter()
 
